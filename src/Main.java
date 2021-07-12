@@ -1,7 +1,8 @@
-import enums.ContainerSize;
-import enums.ContainerType;
-import enums.Flavour;
-import enums.Topping;
+
+import ingredients.BallIceCream.Flavour;
+import ingredients.Topping;
+import ingredients.containers.containerCup.ContainerSize;
+import ingredients.containers.containerCup.ContainerType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,45 +15,43 @@ public class Main {
         double price = scanner.nextDouble();
 
 
-        IceCream melbaStrawberry = new IceCream(ContainerSize.SIZE_SMALL,
-                ContainerType.TYPE_CUP,
-                Flavour.TYPE_STRAWBERRY,
-                3,
-                Topping.TOPPING_CHOCOLATE,
-                1.5
+        IceCream melba1 = new IceCream("Sunshine"
+                ,ContainerSize.SMALL_SIZE
+                ,ContainerType.TYPE_CUP
+                ,Flavour.FLAVOUR_STRAWBERRY
+                ,5
+                , Topping.TOPPING_COCONUT
                 );
-        IceCream melbaChocolate = new IceCream(ContainerSize.SIZE_MEDIUM,
-                ContainerType.TYPE_FUNNEL,
-                Flavour.TYPE_CHOCOLATE,
-                5,
-                Topping.TOPPING_COCONUT,
-                2.3
-                );
-        IceCream melbaSweat = new IceCream(ContainerSize.SIZE_BIG,ContainerType.TYPE_FUNNEL,
-                Flavour.TYPE_CARAMEL,
-                5,
-                Topping.TOPPING_COCONUT,
-                2.3);
-        IceCream melbaBig = new IceCream(ContainerSize.SIZE_SMALL, ContainerType.TYPE_FUNNEL,
-                Flavour.TYPE_STRAWBERRY,
-                4,
-                Topping.TOPPING_MARSHMELOW,
-                6.0);
-        IceCream melbaDesire = new IceCream(ContainerSize.SIZE_BIG, ContainerType.TYPE_FUNNEL,
-                Flavour.TYPE_VANILLA,
-                6,
-                Topping.TOPPING_COCONUT,
-                5.0);
+        IceCream melba2 = new IceCream("Sunny day"
+                ,ContainerSize.SMALL_SIZE
+                ,ContainerType.TYPE_CUP
+                ,Flavour.FLAVOUR_CARAMEL
+                ,3
+                , Topping.TOPPING_CHOCOLATE
+        );
+        IceCream melba3 = new IceCream("Choco"
+                ,ContainerSize.SMALL_SIZE
+                ,ContainerType.TYPE_CUP
+                ,Flavour.FLAVOUR_HAZELNUT
+                ,6
+                , Topping.TOPPING_CHOCOLATE
+        );
+        IceCream melba4 = new IceCream("Caramel"
+                ,ContainerSize.BIG_SIZE
+                ,ContainerType.TYPE_FUNNEL
+                ,Flavour.FLAVOUR_VANILLA
+                ,4
+                , Topping.TOPPING_COCONUT
+        );
 
         List<IceCream> iceCreamList = new ArrayList<>();
-        iceCreamList.add(melbaStrawberry);
-        iceCreamList.add(melbaChocolate);
-        iceCreamList.add(melbaSweat);
-        iceCreamList.add(melbaBig);
-        iceCreamList.add(melbaDesire);
+        iceCreamList.add(melba1);
+        iceCreamList.add(melba2);
+        iceCreamList.add(melba3);
+        iceCreamList.add(melba4);
 
        iceCreamList.stream()
-               .filter(s -> s.getPrice() < price)
+               .filter(s -> s.setPrice() < price)
                .forEach(System.out::println);
     }
 }

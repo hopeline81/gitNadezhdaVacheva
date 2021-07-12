@@ -1,4 +1,4 @@
-package enums;
+package ingredients;
 
 public enum Topping {
     TOPPING_COCONUT,
